@@ -45,17 +45,6 @@ public class SpeedSlab extends SlabBase {
 
     @Override
     public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
-        double boost = 2.2D;
-        int metadata = world.getBlockMetadata(x, y, z) % 8;
-        if (metadata == 1 || metadata == 4) boost = 2.7D;
-
-        double mX = Math.abs(entity.motionX);
-        double mZ = Math.abs(entity.motionZ);
-        if (mX < 0.5D) {
-            entity.motionX *= boost;
-        }
-        if (mZ < 0.5D) {
-            entity.motionZ *= boost;
-        }
+        SpeedBlock.applyBrownstoneSpeed(world, x, y, z, entity);
     }
 }

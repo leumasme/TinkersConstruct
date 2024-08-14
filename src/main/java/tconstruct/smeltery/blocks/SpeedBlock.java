@@ -26,6 +26,10 @@ public class SpeedBlock extends TConstructBlock {
 
     @Override
     public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
+        applyBrownstoneSpeed(world, x, y, z, entity);
+    }
+
+    public static void applyBrownstoneSpeed(World world, int x, int y, int z, Entity entity) {
         double boost = 2.2D;
         int metadata = world.getBlockMetadata(x, y, z);
         if (metadata == 1 || metadata == 4) boost = 2.7D;
